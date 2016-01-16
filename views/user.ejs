@@ -1,0 +1,17 @@
+<% include header%>
+<div class="container mainContent">
+    <% posts.forEach(function(post,index){%>
+    <p><a href="/u/<%=post.name%>/<%=post.time%>/<%=post.title%>"><%= post.title %></a></p>
+    <p class="info">
+        发起人：<a href ='/u/<%=post.name%>'><%=post.name%></a>
+        时间：<a href=""><%=post.time%></a>
+    <p><%-post.post %></p>
+    <hr/>
+    <%})%>
+    </p>
+
+</div>
+
+
+<footer> <% include footer%></footer>
+

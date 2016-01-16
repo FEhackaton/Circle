@@ -1,0 +1,57 @@
+<% include header %>
+ <div class="container mainContent">
+        <div class="col-md-9">
+            <% posts.forEach(function(post, index){ %>
+                <div class="namePanel">
+                    <a href='/u/<%= post.name %>'>
+                        <%= post.name %>
+                    </a>:</div>
+                <div class="topicBox">
+                    <a href="/u/<%= post.name %>/<%= post.time %>/<%= post.title %>">
+                        <%= post.title %>
+                    </a>
+                </div>
+                <div class="info">
+                    <span> 时间：<%= post.time %></span>
+                    <span>阅读：<%= post.pv %></span>
+                    <span class="toReply"><i class="fa fa-commenting"></i>评论：<%= post.comments.length %></span>
+                    <div class="replyBox">
+                        <form method="post" id='commentForm' action="/u/<%= post.name %>/<%= post.time %>/<%= post.title %>">
+                            <input type="hidden" value="<%=user.name %>" name="name" />
+                            <textarea class="form-control reply" name="content"></textarea>
+                            <i class="fa fa-reply replyTo">回复</i>
+                        </form>
+                    </div>
+                    <% post.comments.forEach(function (comment, index) { %>
+                        <p>
+                            <a href="<%= comment.website %>">
+                                <%= comment.name %>
+                            </a>
+                            <span class="info"> 回复于 <%= comment.time %></span></p>
+                        <p>
+                            <%- comment.content %>
+                        </p>
+                    <% }) %>
+                            <hr/>
+
+                </div>
+            <% }) %>
+                <%- include page %>
+        </div>
+        <div class="col-md-3">
+            <ul class="list-group">
+                <% topThree.forEach(function(post, index){ %>
+                    <li class="list-group-item">
+                        <span class="badge"><%= post.pv %></span>
+                        <%= post.title %>
+                    </li>
+                    <% }) %>
+            </ul>
+        </div>
+    </div>
+
+
+<footer>
+    <% include footer %>
+</footer>
+

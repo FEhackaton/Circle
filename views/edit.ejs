@@ -1,0 +1,9 @@
+<%- include header %>
+<form method="post" action="/edit/<%= post.name %>/<%= post.time %>/<%= post.title %>">
+    标题:<br />
+    <input type="text" name="title" value="<%= post.title %>" disabled="disabled" class="form-control" />
+   正文：<br />
+    <textarea name="post" rows="20" cols="100" class="form-control"><%= post.post %></textarea>
+    <button type="submit">保存</button>
+</form>
+<%- include footer %>

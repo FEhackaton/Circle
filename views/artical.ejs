@@ -1,0 +1,17 @@
+<%- include header %>
+<div class="container">
+<p class="info">
+    <p><%=post.title%></p>
+<p>
+    <%if(user&&user.name==post.name){%>
+    <span><a class="edit" href="/edit/<%= post.name %>/<%= post.time%>/<%= post.title %>">编辑</a></span>
+    <span><a class="edit" href="/remove/<%= post.name %>/<%= post.time%>/<%= post.title %>">删除</a></span>
+    <%}%>
+</p>
+    发起人：<a href="/u/<%= post.name %>"><%= post.name %></a> |
+    时间：<%= post.time %>
+</p>
+<p><%- post.post %></p>
+<%- include comment%>
+</div>
+<%- include footer %>
