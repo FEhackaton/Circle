@@ -1,0 +1,17 @@
+<%- include header %>
+<div class="container">
+    <%if(posts.length){%>
+    <ul>
+
+        <% posts.forEach(function (post, index) { %>
+
+        <li><h3><%= post.time %></h3></li>
+
+        <li><a href="/u/<%= post.name %>/<%= post.time %>/<%= post.title %>"><%= post.title %></a></li>
+        <% }) %>
+    </ul>
+    <%}else{%>
+    <p>未找到你搜索的话题</p>
+    <%}%>
+</div>
+<%- include footer %>

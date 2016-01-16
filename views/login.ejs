@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel='stylesheet' href='/stylesheets/bootstrap.css'/>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+</head>
+<body class="loginPage">
+<div class="container loginForm">
+    <h1>圈子</h1>
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <form method="post" class="mainForm">
+                <div class="form-group">
+                    <label for="inputName">Name</label>
+                        <input class="form-control" id="inputName" placeholder="Name" name="name">
+                </div>
+                <div class="form-group">
+                    <label for="inputPassword">Password</label>
+                    <input type="password" class="form-control" id="inputPassword" placeholder="Password"
+                           name="password">
+                </div>
+
+                <div class="form-group">
+                <button type="submit" class="btn btn-success form-control">Submit</button>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+</div>
+<%include footer%>

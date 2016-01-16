@@ -1,0 +1,99 @@
+body {
+
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+
+/*//login*/
+.loginForm{
+	margin-top:50px;
+}
+
+
+
+/*Ê×Ò³*/
+.mainContent{
+  padding:20px;
+}
+.namePanel{
+  font-size:16px;
+}
+.topicBox{
+  margin-left:2em;
+  font-size:14px;
+}
+/*·¢²¼*/
+button.postInfor{
+  float:right;
+  margin-top:10px;
+}
+
+.articalContent{
+  margin-top:10px;
+}
+
+/*header*/
+nav.navbar{
+  background: #5cb85c;
+  width:100%!important;
+  height:70px;
+  margin:0 0 40px 0;
+  padding:0;
+}
+nav.navbar a{
+  color:#fff;
+}
+nav.navbar a:hover{
+  background: none;
+}
+.msgPanel{
+  width:100%;
+  height:48px;
+}
+.msgPanel{
+  position: fixed;
+  top:70px;
+
+}
+.msgPanel .alert{
+  position: relative;
+  width:200px;
+  margin: 0 auto;
+  text-align:center;
+}
+
+.search {
+  margin-right: 30px;
+  width:200px;
+  float:right;
+  margin-top: 18px;
+  /*display: inline-block;*/
+
+}
+ul.navbar-nav{
+  float:right;
+  display: inline-block;
+  margin-top: 10px;
+}
+/*loginPage*/
+.loginForm h1{
+  text-align:center;
+  color:#fff;
+  letter-spacing: 20px;
+
+}
+.loginPage{
+  
+  background: url('../images/loginbg.jpg');
+  background-size: cover;
+
+}
+.loginForm .mainForm{
+  color:#fff;
+  margin-top:100px;
+  margin-left: 25px;
+}
+.loginForm .mainForm .form-group{
+  margin-top:30px;
+}
+

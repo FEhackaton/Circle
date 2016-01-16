@@ -1,0 +1,24 @@
+<% include header %>
+<div class="container mainContent">
+    <% posts.forEach(function(post, index){ %>
+    <div class="namePanel"><a href='/u/<%= post.name %>'><%= post.name %></a>:</div>
+    <div class="topicBox">
+    <p><a href="/u/<%= post.name %>/<%= post.time %>/<%= post.title %>"><%= post.title %></a></p>
+    </div>
+    <p class="info">
+
+        时间：<%= post.time %>
+    阅读：<%=post.pv%>
+评论：<%=post.comments.length%>
+    <p><%- post.post %></p>
+    <hr/>
+    <% }) %>
+    </p>
+
+</div>
+<%- include page %>
+
+<footer>
+    <% include footer %>
+</footer>
+
