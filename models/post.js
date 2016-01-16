@@ -71,8 +71,8 @@ Post.getTen = function (name, page, callback) {
             collection.count(query, function (err, total) {
                 //根据 query 对象查询，并跳过前 (page-1)*10 个结果，返回之后的 10 个结果
                 collection.find(query, {
-                    skip: (page - 1) * 10,
-                    limit: 10
+                    skip: (page - 1) * 5,
+                    limit: 5
                 }).sort({
                     time: -1
                 }).toArray(function (err, docs) {
@@ -82,6 +82,26 @@ Post.getTen = function (name, page, callback) {
                     }
                     callback(null, docs, total);
                 });
+            })
+        })
+    })
+};
+Post.getThree=function(callback){
+    mongodb.open(function(err,db){
+        if(err){
+            return callback(err);
+        }
+        db.collection('posts',function(err,collection){
+            if(err){
+                mongodb.close();
+                return callback(err);
+            }
+            collection.find().limit(3).sort({"pv":-1}).toArray(function(err, docs){
+                mongodb.close();
+                if(err){
+                    return callback(err);
+                }
+                callback(null,docs);
             })
         })
     })

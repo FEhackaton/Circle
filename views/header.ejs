@@ -7,6 +7,8 @@
     <meta charset="utf-8">
     <link rel='stylesheet' href='/stylesheets/bootstrap.css'/>
     <link rel='stylesheet' href='/stylesheets/style.css'/>
+    <link rel='stylesheet' href='/stylesheets/font-awesome-4.5.0/css/font-awesome.css'/>
+
 </head>
 
 <body>
@@ -16,7 +18,7 @@
         <ul class="nav navbar-nav">
             <li><a href="/">首页</a></li>
             <% if(user){ %>
-            <li><a href="/u/<%-user.name%>">我的主页</a></li>
+            <li><a href="/u/<%- user.name %>">我的主页</a></li>
             <li><a href="/post">发表</a></li>
             <li><a href="/logout">注销</a></li>
             <% } else{ %>

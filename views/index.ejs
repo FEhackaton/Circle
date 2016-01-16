@@ -1,22 +1,42 @@
 <% include header %>
 <div class="container mainContent">
-    <% posts.forEach(function(post, index){ %>
-    <div class="namePanel"><a href='/u/<%= post.name %>'><%= post.name %></a>:</div>
-    <div class="topicBox">
-    <p><a href="/u/<%= post.name %>/<%= post.time %>/<%= post.title %>"><%= post.title %></a></p>
+    <div class="col-md-9">
+        <% posts.forEach(function(post, index){ %>
+        <div class="namePanel"><a href='/u/<%= post.name %>'><%= post.name %></a>:</div>
+        <div class="topicBox">
+            <a href="/u/<%= post.name %>/<%= post.time %>/<%= post.title %>"><%= post.title %></a>
+        </div>
+        <p class="info">
+
+            <span> 时间：<%= post.time %></span>
+            <span>阅读：<%= post.pv %></span>
+            <span class="toReply"><i class="fa fa-commenting"></i>评论：<%= post.comments.length %></span>
+            <textarea type="text" class="form-control reply"></textarea>
+            <% post.comments.forEach(function (comment, index) { %>
+            <i class="fa fa-reply">回复</i>
+        <p><a href="<%= comment.website %>"><%= comment.name %></a>
+            <span class="info"> 回复于 <%= comment.time %></span></p>
+
+        <p><%- comment.content %></p>
+        <% }) %>
+        <hr/>
+        <% }) %>
+        </p>
+        <%- include page %>
     </div>
-    <p class="info">
+    <div class="col-md-3">
+        <ul class="list-group">
 
-        时间：<%= post.time %>
-    阅读：<%=post.pv%>
-评论：<%=post.comments.length%>
-    <p><%- post.post %></p>
-    <hr/>
-    <% }) %>
-    </p>
-
+            <% topThree.forEach(function(post, index){ %>
+            <li class="list-group-item">
+                <span class="badge"><%= post.pv %></span>
+                <%= post.title %>
+            </li>
+            <% }) %>
+        </ul>
+    </div>
 </div>
-<%- include page %>
+
 
 <footer>
     <% include footer %>
