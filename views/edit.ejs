@@ -1,9 +1,17 @@
 <%- include header %>
+<<<<<<< HEAD
 <form method="post" action="/edit/<%= post.name %>/<%= post.time %>/<%= post.title %>">
+=======
+<form class='edit-artical' method="post" action="/edit/<%= post.name %>/<%= post.time %>/<%= post.title %>">
+>>>>>>> 94ec1a67df95d886b4f8d9f5d31f7709235645c2
     标题:<br />
     <input type="text" name="title" value="<%= post.title %>" disabled="disabled" class="form-control" />
    正文：<br />
     <textarea name="post" rows="20" cols="100" class="form-control"><%= post.post %></textarea>
+<<<<<<< HEAD
     <button type="submit">保存</button>
+=======
+    <button class=" btn btn-success btn-xs submit" type="submit">保存</button>
+>>>>>>> 94ec1a67df95d886b4f8d9f5d31f7709235645c2
 </form>
 <%- include footer %>

@@ -23,17 +23,25 @@ Comment.prototype.save=function(callback){
             }
             collection.update({
                 'name':name,
+
                 'time':time,
+
+
+
                 'title':title
             }, {
                 $push:{'comments': comment}
                 },
+
             function(err,doc){
+
                 mongodb.close();
                 if(err){
                     return callback(err);
                 }
+
                 callback(null,doc);
+
             })
         })
     })

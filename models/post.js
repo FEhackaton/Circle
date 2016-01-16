@@ -9,14 +9,14 @@ function Post(name, title, post) {
 
 module.exports = Post;
 
-//�洢����
+
 Post.prototype.save = function (callback) {
     var date = new Date();
     var time =
     {
         date: (date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds()).toString()
     }
-    //�������ݿ���ĵ�
+
     var post = {
         name: this.name,
         time: time.date,
@@ -26,19 +26,19 @@ Post.prototype.save = function (callback) {
         pv:0
 
     }
-    //�����ݿ�
+
     mongodb.open(function (err, db) {
         if (err) {
             mongodb.close();
             return callback(err);
         }
-        //��ȡ���ݿ�
+
         db.collection('posts', function (err, collection) {
             if (err) {
                 mongodb.close();
                 return callback(err);
             }
-            //���뼯��
+
             collection.insert(post, {
                 safe: true
             }, function (err, post) {
@@ -67,6 +67,10 @@ Post.getTen = function (name, page, callback) {
             if (name) {
                 query.name = name;
             }
+
+
+
+
 
             collection.count(query, function (err, total) {
 
@@ -199,18 +203,18 @@ Post.update = function (name, time, title, post, callback) {
 }
 
 Post.remove = function (name, time, title, callback) {
-    //�����ݿ�
+
     mongodb.open(function (err, db) {
         if (err) {
             return callback(err);
         }
-        //��ȡ posts ����
+
         db.collection('posts', function (err, collection) {
             if (err) {
                 mongodb.close();
                 return callback(err);
             }
-            //�����û��������ںͱ�����Ҳ�ɾ��һƪ����
+
             collection.remove({
                 "name": name,
                 "time": time,
