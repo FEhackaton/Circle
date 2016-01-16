@@ -11,17 +11,29 @@ body {
 
 
 
-/*��ҳ*/
+/*Ê×Ò³*/
 .mainContent{
   padding:20px;
 }
 .namePanel{
-  font-size:16px;
+    font-size: 14px;
+    font-weight: bold;
+    font-family:"微软雅黑";
+    width: 60px;
+    background-color: #5CB85C;
+    padding: 3px;
+    text-align: center;
+    border-radius: 3px;
+    color: #fff;
+}
+.namePanel a{
+  color: #fff;
 }
 textarea.reply{
   display: none;
   max-width:100%;
   overflow-y:visible;
+  margin-top: 3px;
 }
 .fa-reply,.toReply{
   cursor: pointer;
@@ -47,7 +59,7 @@ textarea.reply{
   border-top: 12px solid transparent;
 }
 .topicBox{
-
+  margin-bottom: 6px;
   position: relative;
   margin-top:20px;
   padding:8px;
@@ -55,7 +67,7 @@ textarea.reply{
   background: #eeeeff;
   border-radius:3px;
 }
-/*����*/
+/*·¢²¼*/
 button.postInfor{
   float:right;
   margin-top:10px;
@@ -129,4 +141,31 @@ ul.navbar-nav{
 .loginForm .mainForm .form-group{
   margin-top:30px;
 }
-
+.artical{
+  background-color: #eee;
+  padding: 10px;
+  line-height: 25px;
+  
+  border-radius: 3px;
+}
+.sub-artical{
+  width: 50%;
+  min-height: 200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.hr{
+  width: 51%;
+}
+.hr1{
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+.edit-artical{
+  width: 50%;
+  margin-left: 20px;
+}
+.submit{
+  margin-top: 10px;
+  float: right;
+}

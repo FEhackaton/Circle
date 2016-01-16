@@ -2,7 +2,7 @@
 <div class="container mainContent">
     <div class="col-md-9">
         <% posts.forEach(function(post, index){ %>
-        <div class="namePanel"><a href='/u/<%= post.name %>'><%= post.name %></a>:</div>
+        <div class="namePanel"><a href='/u/<%= post.name %>'><%= post.name %></a></div>
         <div class="topicBox">
             <a href="/u/<%= post.name %>/<%= post.time %>/<%= post.title %>"><%= post.title %></a>
         </div>
@@ -19,7 +19,7 @@
 
         <p><%- comment.content %></p>
         <% }) %>
-        <hr/>
+        <hr class="hr1"/>
         <% }) %>
         </p>
         <%- include page %>
