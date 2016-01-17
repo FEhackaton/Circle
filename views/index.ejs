@@ -1,6 +1,8 @@
 <% include header %>
+
 <div class="container mainContent">
     <div class="col-md-9">
+        <% include msgTip %>
         <% posts.forEach(function(post, index){ %>
         <span class="namePanel"><a href='/u/<%= post.name %>'><%= post.name %></a></span>
         <div class="topicBox">
