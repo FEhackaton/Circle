@@ -13,22 +13,16 @@ router.get('/', function (req, res) {
     var posts = [],
         total = 0,
         topThree = [];
-
-
-<<<<<<< HEAD
     Post.getTen(null, page, function (err, posts, total) {
         if (err) {
             posts = [];
 
         }
-
         posts = posts;
         total = total;
-
         Post.getThree(function (err, topThree) {
             if (err) {
                 topThree = [];
-
             }
             topThree = topThree;
             res.render('index', {
@@ -44,47 +38,7 @@ router.get('/', function (req, res) {
             });
         });
     });
-=======
-
-        Post.getTen(null, page, function (err, posts, total) {
-            if (err) {
-                posts = [];
-
-            }
-
-            posts = posts;
-            total = total;
-
-            Post.getThree(function (err, topThree) {
-                if (err) {
-                    topThree = [];
-                    done(err, null)
-                }
-                topThree = topThree;
-                res.render('index', {
-                    title: '首页',
-                    posts: posts,
-                    page: page,
-                    topThree: topThree,
-                    isFirstPage: (page - 1) == 0,
-                    isLastPage: ((page - 1) * 10 + posts.length) == total,
-                    user: req.session.user,
-                    success: req.flash('success').toString(),
-                    error: req.flash('error').toString()
-                });
-            });
-        });
-
-
-
-
-
-
->>>>>>> 94ec1a67df95d886b4f8d9f5d31f7709235645c2
-
-
 });
-
 
 //个人中心
 router.get('/u/:name', function (req, res) {
@@ -220,40 +174,26 @@ router.post('/login', function (req, res) {
     User.get(name, function (err, user) {
         if (!user) {
             req.flash('error', '用户名不存在');
-<<<<<<< HEAD
             return res.render('login', {
                 error: req.flash('error').toString()
             });
-=======
-            return res.redirect('/login');
->>>>>>> 94ec1a67df95d886b4f8d9f5d31f7709235645c2
         }
         //密码检测
         if (user.password != password) {
             req.flash('error', '密码错误');
-<<<<<<< HEAD
             return res.render('login', {
                 error: req.flash('error').toString()
 
             })
         }
-=======
-            return res.redirect('/login');
-        }
 
->>>>>>> 94ec1a67df95d886b4f8d9f5d31f7709235645c2
         //校验通过，存入session
         req.session.user = user;
         req.flash('success', '登录成功');
-        res.redirect('/')
-<<<<<<< HEAD
+        res.redirect('/');
 
     })
 
-
-=======
-    })
->>>>>>> 94ec1a67df95d886b4f8d9f5d31f7709235645c2
 });
 
 
@@ -291,11 +231,6 @@ router.post('/u/:name/:time/:title', function (req, res) {
             date.getHours() + ":" + (date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes());
     var comment = {
         name: req.body.name,
-<<<<<<< HEAD
-=======
-        email: req.body.email,
-        website: req.body.website,
->>>>>>> 94ec1a67df95d886b4f8d9f5d31f7709235645c2
         time: time,
         content: req.body.content
     };
