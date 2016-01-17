@@ -34,11 +34,6 @@ app.use(session({
 }));
 
 app.use('/', routes);
-// app.use('/users', users);
-// app.use('/post',post);
-// app.use('/login',login);
-// app.use('/logout',logout);
-// app.use('/reg',reg);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -70,14 +65,8 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
-app.get('/',routes);   //routes.index
-// app.get('/u/:user',routes.user);
-// app.post('/post',post);
-// app.get('/reg',reg);
-// app.post('/reg',reutes.doReg);
-// app.get('/login',login);
-// app.post('/login',routes.doLogin);
-// app.get('/logout',logout);
+app.get('/',routes);
+
 
 app.listen(3000);
 
