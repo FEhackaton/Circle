@@ -27,7 +27,7 @@ body {
     font-size: 14px;
     font-weight: bold;
     font-family:"微软雅黑";
-    background-color: #5CB85C;
+    background-color: #ccc;
     padding: 3px 10px;
     text-align: center;
     border-radius: 3px;
@@ -70,7 +70,7 @@ i.fa-reply:hover{
   left: 10px;
   width:0px;
   height: 0px;
-  border-bottom: 12px solid #eeeeff;
+  border-bottom: 12px solid #D9EDF7;
   border-left: 12px solid transparent;
   border-right: 12px solid transparent;
   border-top: 12px solid transparent;
@@ -81,7 +81,7 @@ i.fa-reply:hover{
   margin-top:20px;
   padding:8px;
   font-size:14px;
-  background:#E3EDDF;
+  background:#D9EDF7;
   border-radius:3px;
 }
 
@@ -98,7 +98,7 @@ button.postInfor{
 
 /*header*/
 nav.navbar{
-  background: #5cb85c;
+  background: #337AB7;
   width:100%!important;
   height:70px;
   margin:0 0 40px 0;
@@ -234,4 +234,18 @@ ul.navbar-nav{
   color: #ccc;
   text-align: center;
   line-height: 50px;
+}
+.artical-title{
+  color:#666;
+}
+.form-horizontal{
+  margin-top: 120px;
+}
+.user{
+  width: 50px;
+  color: #fff;
+  font-family: "微软雅黑";
+}
+li.user a{
+  color:#DF4837;
 }

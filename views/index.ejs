@@ -4,7 +4,7 @@
         <% posts.forEach(function(post, index){ %>
         <span class="namePanel"><a href='/u/<%= post.name %>'><%= post.name %></a></span>
         <div class="topicBox">
-            <a href="/u/<%= post.name %>/<%= post.time %>/<%= post.title %>"><%= post.title %></a>
+            <a class='artical-title' href="/u/<%= post.name %>/<%= post.time %>/<%= post.title %>"><%= post.title %></a>
         </div>
         <div class="info">
 
@@ -22,6 +22,7 @@
                 </form>
             </div>
         <%}%>
+        <%if(post.comments.length){%>
         <div class="comment-con">
             <% post.comments.forEach(function (comment, index) { %>
                 <div class='msg'>
@@ -31,6 +32,7 @@
                 </div>
             <% }) %>
          </div>
+         <%}%>
          <hr class="hr1"/>
 
         </div>

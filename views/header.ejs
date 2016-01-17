@@ -5,7 +5,7 @@
         <%= title %>
     </title>
     <meta charset="utf-8">
-    <link href="../images/logo.ico" rel="shortcut icon"/>
+    <link href="/images/logo.ico" rel="shortcut icon"/>
     <link rel='stylesheet' href='/stylesheets/bootstrap.css'/>
     <link rel='stylesheet' href='/stylesheets/style.css'/>
     <link rel='stylesheet' href='/stylesheets/font-awesome-4.5.0/css/font-awesome.css'/>
@@ -15,8 +15,12 @@
 <body>
 <nav class="navbar">
     <div class="container">
-        <img class="logo" src="../images/logo.jpg">
+        <img class="logo" src="/images/logo.jpg">
+        
         <ul class="nav navbar-nav">
+            <% if(user){ %>
+              <li class="user"><a href="javascript:void(0)"><%- user.name %></a></li>
+             <% } %>
             <li><a href="/">首页</a></li>
             <% if(user){ %>
             <li><a href="/u/<%- user.name %>">我的主页</a></li>
