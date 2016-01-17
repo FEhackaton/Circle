@@ -138,6 +138,9 @@ ul.navbar-nav{
   margin-top: 10px;
 }
 /*loginPage*/
+.loginForm{
+  color:#fff;
+}
 .loginForm h1{
   text-align:center;
   color:#fff;

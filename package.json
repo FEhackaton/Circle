@@ -21,12 +21,11 @@
     "mongodb": "^1.4.40",
     "morgan": "^1.6.1",
     "multer": "^0.1.8",
-<<<<<<< HEAD
     "serve-favicon": "^2.3.0",
-    "nodemailer": "^1.2.1"
-=======
+    "nodemailer": "0.7.1",
     "node-uuid": "^1.4.7",
-    "serve-favicon": "^2.3.0"
->>>>>>> dedf7d7228a4b3fdd0f80045a680b1c226a08c03
+    "serve-favicon": "^2.3.0",
+
+
   }
 }

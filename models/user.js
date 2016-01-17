@@ -5,6 +5,7 @@ function User(user) {
     this.name = user.name;
     this.password = user.password;
     this.email=user.email;
+    this.circle=user.circle;
 };
 module.exports = User;
 
@@ -15,7 +16,8 @@ User.prototype.save = function save(callback) {
     var user = {
         name: this.name,
         password: this.password,
-        email:this.email
+        email:this.email,
+        circle:this.circle
     };
 
 
@@ -74,3 +76,27 @@ User.get = function(username, callback) {
         });
     });
 };
+User.getByCircle=function(circle,callback){
+    mongodb.open(function(err,db){
+        if(err){
+            mongodb.close();
+            return callback(err);
+        }
+        db.collection('users',function(err,_collection){
+            if(err){
+                mongodb.close();
+                return callback(err);
+            }
+            _collection.find({'circle':'FE'}).toArray(function(err,users){
+                if(err){
+                    mongodb.close();
+                    return callback(err);
+                }
+                callback(null,users);
+            })
+
+            })
+        })
+    }
+
+

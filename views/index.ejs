@@ -11,7 +11,7 @@
             <span> 时间：<%= post.time %></span>
             <span>阅读：<%= post.pv %></span>
             <span class="toReply"><i class="fa fa-commenting"></i>评论：<%= post.comments.length %></span>
-
+       <% if(user){%>
         <div class="replyBox">
             <form method="post" class='commentForm' action="/u/comment">
                 <input type="hidden" value="<%= user.name %>" name="name"/>
@@ -21,6 +21,7 @@
                 <i class="fa fa-reply replyTo">回复</i>
             </form>
         </div>
+            <%}%>
         <% post.comments.forEach(function (comment, index) { %>
 
         <p><a href="/u/<%= comment.name %>"><%= comment.name %></a>

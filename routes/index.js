@@ -4,8 +4,8 @@ var async = require('async');
 var User = require('../models/user.js');
 var Post = require('../models/post.js');
 var nodemailer = require('nodemailer');
-var $ = require('jquery');
 var Comment = require('../models/comment.js');
+var emailService =require('../lib/email.js');
 var router = express.Router();
 
 /* GET home page. */
@@ -84,37 +84,43 @@ router.get('/post', function (req, res) {
 
 router.post('/post', function (req, res) {
     var curUser = req.session.user,
-        post = new Post(curUser.name, req.body.title, req.body.post);
+        users=[],
+        to='',
+        post = new Post(curUser.name, req.body.title, req.body.post,req.body.category);
     post.save(function (err) {
         if (err) {
             req.flash('error', err);
             return res.redirect('/');
         }
-        req.flash('success', '发布成功');
-        var transporter = nodemailer.createTransport({
-            service: 'QQ',
-            auth: {
-                user: '1556206477@qq.com',
-                pass: '%31415926CHG'
+        User.getByCircle(req.body.category,function(err,result){
+            if(err){
+                req.flash('error', err);
+                return res.redirect('/');
             }
-        });
-
-        var mailOptions = {
-            from: '1556206477@qq.com', // sender address
-            to: '490974383@qq.com', // list of receivers
-            subject: 'Hello', // Subject line
-            text: 'Hello world', // plaintext body
-            html: '<b>Hello world</b>' // html body
-        };
-
-        transporter.sendMail(mailOptions, function(error, info){
-            if(error){
-                console.log(error);
-            }else{
-                console.log('Message sent: ' + info.response);
+            if(result){
+               for(key in result){
+                   users.push(result[key].email)
+               }
+                to=users.join(',');
             }
-        });
-        res.redirect('/');
+
+
+            console.log(result);
+            req.flash('success', '发布成功');
+            if(to.length) {
+                emailService().send(to, 'hello', 'come on baby', function () {
+                    res.redirect('/');
+                });
+            }
+            else{
+                res.redirect('/');
+            }
+
+        })
+
+
+
+
     })
 
 });
@@ -147,7 +153,8 @@ router.post('/reg', function (req, res) {
     var newUser = new User({
         name: req.body.username,
         password: password,
-        email: req.body.email
+        email: req.body.email,
+        circle:req.body.circle
     });
     //检查用户名是否已经存在
     User.get(newUser.name, function (err, user) {
