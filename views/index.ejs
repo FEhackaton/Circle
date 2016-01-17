@@ -30,7 +30,7 @@
             <% topThree.forEach(function(post, index){ %>
             <li class="list-group-item">
                 <span class="badge"><%= post.pv %></span>
-                <%= post.title %>
+                <a href="/u/<%= post.name %>/<%= post.time %>/<%= post.title %>"><%= post.title %></a>
             </li>
             <% }) %>
         </ul>
