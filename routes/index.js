@@ -207,6 +207,7 @@ router.post('/login', function (req, res) {
         if (!user) {
             req.flash('error', '用户名不存在');
             return res.render('login', {
+                success: req.flash('success').toString(),
                 error: req.flash('error').toString()
             });
         }
@@ -214,6 +215,7 @@ router.post('/login', function (req, res) {
         if (user.password != password) {
             req.flash('error', '密码错误');
             return res.render('login', {
+                success: req.flash('success').toString(),
                 error: req.flash('error').toString()
 
             })

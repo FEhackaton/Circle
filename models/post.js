@@ -1,5 +1,6 @@
 var mongodb = require('./db');
 var uuid= require('node-uuid');
+var markdown =require('markdown').markdown;
 
 
 function Post(name, title, post,category) {
@@ -110,6 +111,9 @@ Post.getThree=function(callback){
                 if(err){
                     return callback(err);
                 }
+                docs.forEach(function(doc){
+                    doc.post=markdown.toHTML(doc.post);
+                })
                 callback(null,docs);
             })
         })
@@ -147,7 +151,9 @@ Post.getOne = function (name, time, title, callback) {
                             return callback(err);
                         }
                     })
+                    doc.post=markdown.toHTML(doc.post);
                 }
+
                 callback(null, doc);
             })
         })
