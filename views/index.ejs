@@ -14,7 +14,7 @@
 
         <div class="replyBox">
             <form method="post" id='commentForm' action="/u/<%= post.name %>/<%= post.time %>/<%= post.title %>">
-                <input type="hidden" value="<%= user.name %>" name="name"/>
+               
                 <textarea class="form-control reply" name="content"></textarea>
                 <i class="fa fa-reply replyTo">回复</i>
             </form>

@@ -3,6 +3,7 @@ var crypto = require('crypto');
 var async = require('async');
 var User = require('../models/user.js');
 var Post = require('../models/post.js');
+var nodemailer = require('nodemailer');
 var $ = require('jquery');
 var Comment = require('../models/comment.js');
 var router = express.Router();
@@ -78,6 +79,7 @@ router.get('/post', function (req, res) {
         error: req.flash('error').toString()
 
     });
+
 })
 
 router.post('/post', function (req, res) {
@@ -89,6 +91,29 @@ router.post('/post', function (req, res) {
             return res.redirect('/');
         }
         req.flash('success', '发布成功');
+        var transporter = nodemailer.createTransport({
+            service: 'QQ',
+            auth: {
+                user: '1556206477@qq.com',
+                pass: '%31415926CHG'
+            }
+        });
+
+        var mailOptions = {
+            from: '1556206477@qq.com', // sender address
+            to: '490974383@qq.com', // list of receivers
+            subject: 'Hello', // Subject line
+            text: 'Hello world', // plaintext body
+            html: '<b>Hello world</b>' // html body
+        };
+
+        transporter.sendMail(mailOptions, function(error, info){
+            if(error){
+                console.log(error);
+            }else{
+                console.log('Message sent: ' + info.response);
+            }
+        });
         res.redirect('/');
     })
 
