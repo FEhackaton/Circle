@@ -16,12 +16,13 @@
                 <form method="post" class='commentForm' action="/u/comment">
                     <input type="hidden" value="<%= user.name %>" name="name"/>
                     <input type="hidden" value="<%= post.id %>" name="postId"/>
-                    <input type="text" value="/u/comment/<%= post.id %>"/>g
+                   
                     <textarea class="form-control reply" name="content"></textarea>
                     <i class="fa fa-reply replyTo">回复</i>
                 </form>
             </div>
         <%}%>
+            <%if(post.comments.length){%>
         <div class="comment-con">
             <% post.comments.forEach(function (comment, index) { %>
                 <div class='msg'>
@@ -31,6 +32,7 @@
                 </div>
             <% }) %>
          </div>
+            <%}%>
          <hr class="hr1"/>
 
         </div>
