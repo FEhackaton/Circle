@@ -12,25 +12,27 @@
             <span>阅读：<%= post.pv %></span>
             <span class="toReply"><i class="fa fa-commenting"></i>评论：<%= post.comments.length %></span>
        <% if(user){%>
-        <div class="replyBox">
-            <form method="post" class='commentForm' action="/u/comment">
-                <input type="hidden" value="<%= user.name %>" name="name"/>
-                <input type="hidden" value="<%= post.id %>" name="postId"/>
-                <input type="text" value="/u/comment/<%= post.id %>"/>g
-                <textarea class="form-control reply" name="content"></textarea>
-                <i class="fa fa-reply replyTo">回复</i>
-            </form>
-        </div>
+            <div class="replyBox">
+                <form method="post" class='commentForm' action="/u/comment">
+                    <input type="hidden" value="<%= user.name %>" name="name"/>
+                    <input type="hidden" value="<%= post.id %>" name="postId"/>
+                    <input type="text" value="/u/comment/<%= post.id %>"/>g
+                    <textarea class="form-control reply" name="content"></textarea>
+                    <i class="fa fa-reply replyTo">回复</i>
+                </form>
+            </div>
+        <%}%>
         <div class="comment-con">
             <% post.comments.forEach(function (comment, index) { %>
-            <div class='msg'>
-                <p><a href="/u/<%= comment.name %>"><%= comment.name %></a>
-                    <span class="info"> 回复于 <%= comment.time %></span></p>
-                <p class="comment"><%- comment.content %></p>
-            </div>
-        <% }) %>
-        </div>
-        <hr class="hr1"/>
+                <div class='msg'>
+                    <p><a href="/u/<%= comment.name %>"><%= comment.name %></a>
+                        <span class="info"> 回复于 <%= comment.time %></span></p>
+                    <p class="comment"><%- comment.content %></p>
+                </div>
+            <% }) %>
+         </div>
+         <hr class="hr1"/>
+
         </div>
         <% }) %>
 
