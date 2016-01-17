@@ -9,14 +9,14 @@ function Post(name, title, post) {
 
 module.exports = Post;
 
-//存储文章
+
 Post.prototype.save = function (callback) {
     var date = new Date();
     var time =
     {
         date: (date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds()).toString()
     }
-    //存入数据库的文档
+
     var post = {
         name: this.name,
         time: time.date,
@@ -26,19 +26,19 @@ Post.prototype.save = function (callback) {
         pv:0
 
     }
-    //打开数据库
+
     mongodb.open(function (err, db) {
         if (err) {
             mongodb.close();
             return callback(err);
         }
-        //读取数据库
+
         db.collection('posts', function (err, collection) {
             if (err) {
                 mongodb.close();
                 return callback(err);
             }
-            //插入集合
+
             collection.insert(post, {
                 safe: true
             }, function (err, post) {
@@ -67,9 +67,13 @@ Post.getTen = function (name, page, callback) {
             if (name) {
                 query.name = name;
             }
-            //使用 count 返回特定查询的文档数 total
+
+
+
+
+
             collection.count(query, function (err, total) {
-                //根据 query 对象查询，并跳过前 (page-1)*10 个结果，返回之后的 10 个结果
+
                 collection.find(query, {
                     skip: (page - 1) * 5,
                     limit: 5
@@ -199,18 +203,18 @@ Post.update = function (name, time, title, post, callback) {
 }
 
 Post.remove = function (name, time, title, callback) {
-    //打开数据库
+
     mongodb.open(function (err, db) {
         if (err) {
             return callback(err);
         }
-        //读取 posts 集合
+
         db.collection('posts', function (err, collection) {
             if (err) {
                 mongodb.close();
                 return callback(err);
             }
-            //根据用户名、日期和标题查找并删除一篇文章
+
             collection.remove({
                 "name": name,
                 "time": time,

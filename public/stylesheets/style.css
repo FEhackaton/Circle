@@ -11,6 +11,24 @@ body {
 
 
 
+<<<<<<< HEAD
+/*首页*/
+.mainContent{
+  padding:20px;
+}
+
+.namePanel{
+  font-size:16px;
+}
+.replyBox{
+  padding-top: 10px;
+  display: none;
+  margin-bottom: 29px;
+}
+.reply{
+  max-width:100%;
+  overflow-y:visible;
+=======
 /*脢脳脪鲁*/
 .mainContent{
   padding:20px;
@@ -34,10 +52,24 @@ textarea.reply{
   max-width:100%;
   overflow-y:visible;
   margin-top: 3px;
+>>>>>>> 94ec1a67df95d886b4f8d9f5d31f7709235645c2
 }
 .fa-reply,.toReply{
   cursor: pointer;
 }
+<<<<<<< HEAD
+i.fa-reply{
+  margin-top:6px;
+  margin-right: 10px;
+  float:right;
+  display: block;
+  margin-bottom: 10px;
+}
+i.fa-reply:hover{
+  color:#000;
+}
+=======
+>>>>>>> 94ec1a67df95d886b4f8d9f5d31f7709235645c2
 .info{
   font-size:12px;
   color:#A9A7A7;
@@ -59,7 +91,11 @@ textarea.reply{
   border-top: 12px solid transparent;
 }
 .topicBox{
+<<<<<<< HEAD
+
+=======
   margin-bottom: 6px;
+>>>>>>> 94ec1a67df95d886b4f8d9f5d31f7709235645c2
   position: relative;
   margin-top:20px;
   padding:8px;
@@ -67,7 +103,11 @@ textarea.reply{
   background: #eeeeff;
   border-radius:3px;
 }
+<<<<<<< HEAD
+/*发布*/
+=======
 /*路垄虏录*/
+>>>>>>> 94ec1a67df95d886b4f8d9f5d31f7709235645c2
 button.postInfor{
   float:right;
   margin-top:10px;
@@ -92,7 +132,11 @@ nav.navbar a:hover{
   background: none;
 }
 .msgPanel{
+<<<<<<< HEAD
+
+=======
   width:100%;
+>>>>>>> 94ec1a67df95d886b4f8d9f5d31f7709235645c2
   height:48px;
 }
 .msgPanel{
@@ -141,6 +185,9 @@ ul.navbar-nav{
 .loginForm .mainForm .form-group{
   margin-top:30px;
 }
+<<<<<<< HEAD
+
+=======
 .artical{
   background-color: #eee;
   padding: 10px;
@@ -169,3 +216,4 @@ ul.navbar-nav{
   margin-top: 10px;
   float: right;
 }
+>>>>>>> 94ec1a67df95d886b4f8d9f5d31f7709235645c2
