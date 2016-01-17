@@ -2,7 +2,7 @@
 <div class="container mainContent">
     <div class="col-md-9">
         <% posts.forEach(function(post, index){ %>
-        <div class="namePanel"><a href='/u/<%= post.name %>'><%= post.name %></a></div>
+        <span class="namePanel"><a href='/u/<%= post.name %>'><%= post.name %></a></span>
         <div class="topicBox">
             <a href="/u/<%= post.name %>/<%= post.time %>/<%= post.title %>"><%= post.title %></a>
         </div>
@@ -16,18 +16,20 @@
             <form method="post" class='commentForm' action="/u/comment">
                 <input type="hidden" value="<%= user.name %>" name="name"/>
                 <input type="hidden" value="<%= post.id %>" name="postId"/>
-                <input type="text" value="/u/comment/<%= post.id %>"/>
+                <input type="text" value="/u/comment/<%= post.id %>"/>g
                 <textarea class="form-control reply" name="content"></textarea>
                 <i class="fa fa-reply replyTo">回复</i>
             </form>
         </div>
-        <% post.comments.forEach(function (comment, index) { %>
-
-        <p><a href="/u/<%= comment.name %>"><%= comment.name %></a>
-            <span class="info"> 回复于 <%= comment.time %></span></p>
-
-        <p><%- comment.content %></p>
+        <div class="comment-con">
+            <% post.comments.forEach(function (comment, index) { %>
+            <div class='msg'>
+                <p><a href="/u/<%= comment.name %>"><%= comment.name %></a>
+                    <span class="info"> 回复于 <%= comment.time %></span></p>
+                <p class="comment"><%- comment.content %></p>
+            </div>
         <% }) %>
+        </div>
         <hr class="hr1"/>
         </div>
         <% }) %>
@@ -36,10 +38,12 @@
     </div>
     <div class="col-md-3">
         <ul class="list-group">
-
+            <a href="#" class="list-group-item active">
+                热门话题
+            </a>
             <% topThree.forEach(function(post, index){ %>
             <li class="list-group-item">
-                <span class="badge"><%= post.pv %></span>
+                <span class="badge top<%= index %>"><%= post.pv %></span>
                 <a href="/u/<%= post.name %>/<%= post.time %>/<%= post.title %>"><%= post.title %></a>
             </li>
             <% }) %>

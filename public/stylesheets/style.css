@@ -1,6 +1,7 @@
 body {
 
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #eee;
 }
 
 
@@ -20,14 +21,14 @@ body {
 
 .mainContent{
   padding:20px;
+  background: #fff;
 }
 .namePanel{
     font-size: 14px;
     font-weight: bold;
     font-family:"微软雅黑";
-    width: 60px;
     background-color: #5CB85C;
-    padding: 3px;
+    padding: 3px 10px;
     text-align: center;
     border-radius: 3px;
     color: #fff;
@@ -80,7 +81,7 @@ i.fa-reply:hover{
   margin-top:20px;
   padding:8px;
   font-size:14px;
-  background: #eeeeff;
+  background:#E3EDDF;
   border-radius:3px;
 }
 
@@ -167,13 +168,13 @@ ul.navbar-nav{
   border-radius: 3px;
 }
 .sub-artical{
-  width: 50%;
-  min-height: 200px;
+  width: 60%;
+  min-height: 50px;
   margin-left: auto;
   margin-right: auto;
 }
 .hr{
-  width: 51%;
+  width: 61%;
 }
 .hr1{
   margin-bottom: 10px;
@@ -181,10 +182,53 @@ ul.navbar-nav{
 }
 .edit-artical{
   width: 50%;
-  margin-left: 20px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .submit{
   margin-top: 10px;
   float: right;
 }
-
+.logo{
+  width: 69px;
+  height: 69px;
+  float: left;
+}
+.comment-con{
+  margin-left: 15px;
+  margin-top: 10px;
+  width: 98%;
+  border: 1px solid #eee;
+  padding: 5px;
+  border-radius: 3px;
+}
+.comment{
+  margin-left: 30px;
+  padding: 0px;
+  color: #333;
+}
+.msg>p{
+  padding: 0;
+}
+.create-artical{
+  width: 60%;
+  margin-right: auto;
+  margin-left: auto;
+}
+.top0{
+    background-color: #d43f3a;
+}
+.top1{
+    background-color: #f0ad4e;
+}
+.top2{
+    background-color: #FFE870;
+}
+.empty{
+  width: 100%;
+  height: 50px;
+  font-size: 24px;
+  color: #ccc;
+  text-align: center;
+  line-height: 50px;
+}
