@@ -1,10 +1,13 @@
 var mongodb = require('./db');
+var uuid= require('node-uuid');
 
 
 function Post(name, title, post) {
     this.name = name;
     this.title = title;
     this.post = post;
+
+
 }
 
 module.exports = Post;
@@ -18,6 +21,7 @@ Post.prototype.save = function (callback) {
     }
 
     var post = {
+        id:uuid.v1(),
         name: this.name,
         time: time.date,
         title: this.title,

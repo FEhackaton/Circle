@@ -250,7 +250,7 @@ router.get('/u/:name/:time/:title', function (req, res) {
         })
     })
 })
-router.post('/u/:name/:time/:title', function (req, res) {
+router.post('/u/comment', function (req, res) {
     var date = new Date(),
         time = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + " " +
             date.getHours() + ":" + (date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes());
@@ -259,7 +259,7 @@ router.post('/u/:name/:time/:title', function (req, res) {
         time: time,
         content: req.body.content
     };
-    var newComment = new Comment(req.params.name, req.params.time, req.params.title, comment);
+    var newComment = new Comment(req.body.postId,  comment);
     newComment.save(function (err) {
         if (err) {
             req.flash('error', err);
