@@ -2,11 +2,11 @@ var mongodb = require('./db');
 var uuid= require('node-uuid');
 
 
-function Post(name, title, post) {
+function Post(name, title, post,category) {
     this.name = name;
     this.title = title;
     this.post = post;
-
+    this.category=category;//类别
 
 }
 
@@ -27,6 +27,7 @@ Post.prototype.save = function (callback) {
         title: this.title,
         post: this.post,
         comments: [],
+        category:this.category,
         pv:0
 
     }
